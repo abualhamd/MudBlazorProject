@@ -36,33 +36,25 @@
 </MudText>
 
 <br />
-@* <MudGrid> *@
-    @* <MudCard>
-        <MudCardMedia Image="door.jpg" />
-        <MudCardContent>
-            <MudText Typo="Typo.h5" GutterBottom="true">MudBlazor .NET 9 Template</MudText>
-            <MudText Typo="Typo.body2">
-                This template demonstrates the integration of MudBlazor with the latest .NET 9 features,<br />
-                including the new render modes and enhanced prerendering capabilities.<br />
-                It serves as a starting point for building modern, interactive web applications using Blazor and MudBlazor.
-            </MudText>
-        </MudCardContent>
-        <MudCardActions>
-            <MudButton Variant="Variant.Text" Color="Color.Primary" Href="https://mudblazor.com" Target="_blank">Learn More</MudButton>
-        </MudCardActions>
-    </MudCard> *@
     <SiteCard />
 
-    <MudCard>
-	    <MudCardMedia Image="placeholder.png"/>
-        <MudCardContent>
-        <MudStack Row Justify="Justify.SpaceBetween" AlignItems="AlignItems.Stretch">
-                <MudText>الفئة</MudText>
-                <MudText>متوسط</MudText>
+    <MudCard Style="border-radius:20px">
+	    <MudCardMedia Image="placeholder.png" Height="200"/>
+        <MudCardContent Style="height:174px">
+        <MudStack Justify="Justify.FlexEnd"  AlignItems="AlignItems.Stretch">
+                <MudStack Row Justify="Justify.SpaceBetween" AlignItems="AlignItems.Stretch">
+                <MudPaper Elevation="0" Style="background-color:#F8FAFC;padding-left:8px;padding-right:8px;padding-right:8px;border-radius:8px">
+                        <MudText>الفئة</MudText>
+                </MudPaper>
+                    <MudText>متوسط</MudText>
+                </MudStack>
+                    <MudText>أسم الدورة</MudText>
+                <MudText>متبقي 3 ساعات 100% </MudText>
             </MudStack>
-            <MudText>أسم الدورة</MudText>
-            <MudText>متبقي 3 ساعات</MudText>
         </MudCardContent>
+        <MudCardActions>
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true" Style="border-radius:0px 0px 20px 20px">عرض الدورة</MudButton>
+        </MudCardActions>
     </MudCard>
 @* 
 </MudGrid> *@
