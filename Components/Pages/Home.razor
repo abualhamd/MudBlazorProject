@@ -78,7 +78,7 @@
             </MudAvatar>
         </AvatarContent>
     </MudListItem>
-    <MudListItem Text="Nested List">
+    <MudListItem Text="Nested List" >
         <NestedList>
             <MudListItem Icon="@Icons.Material.Filled.Chat" Text="Chat" Value='"Chat"'/>
             <MudListItem Icon="@Icons.Material.Filled.Group" Text="Group" Value='"Group"' />
@@ -89,6 +89,70 @@
     <MudListItem Icon="@Icons.Material.Filled.Mail" Text="Mail" OnClick='(args) => Console.WriteLine("Mail")' />
     <MudListItem Icon="@Icons.Material.Filled.Phone" Text="Phone" />
 </MudList>
+
+<MudStack AlignItems="AlignItems.Start" >
+    <MudButton ButtonType="ButtonType.Submit" StartIcon="@Icons.Custom.Brands.MudBlazor" Color="Color.Primary">
+	    MudBlazor
+    </MudButton>
+    <MudButton ButtonType="ButtonType.Reset" StartIcon="@Icons.Custom.Brands.MudBlazor" Color="Color.Primary">
+	    MudBlazor
+    </MudButton>
+    <MudButton ButtonType="ButtonType.Button" StartIcon="@Icons.Custom.Brands.MudBlazor" Color="Color.Primary">
+	    MudBlazor
+    </MudButton>
+    <MudButton OnClick="() => isLoading = !isLoading">
+        @if (isLoading)
+        {
+            <MudProgressCircular Color="Color.Primary" Size="Size.Small" Indeterminate Rounded/>
+        }
+        else
+        {
+            <MudText>Press Me</MudText>
+        }
+    </MudButton>
+
+    <MudButtonGroup>
+        <MudButton>Press Me</MudButton>
+        @* <MudButton>Press Me</MudButton> *@
+        <MudMenu Icon="@Icons.Material.Filled.ArrowDropDown">
+            <MudMenuItem>Reply</MudMenuItem>
+            <MudMenuItem>Add</MudMenuItem>
+        </MudMenu>
+    </MudButtonGroup>
+</MudStack>
+
+<MudButton Href="https://github.com/MudBlazor/MudBlazor"
+           Target="_blank"
+           Variant="Variant.Filled"
+           EndIcon="@Icons.Custom.Brands.GitHub"
+           Color="Color.Primary"
+           Disabled=@disabled>
+    GitHub Link
+</MudButton>
+<MudButton Href="https://github.com/MudBlazor/MudBlazor"
+           Target="_blank"
+           Variant="Variant.Text"
+           EndIcon="@Icons.Custom.Brands.GitHub"
+           Color="Color.Secondary"
+           Style="text-transform:none"
+           Disabled=@disabled>
+    GitHub Link
+</MudButton>
+<MudButton Href="https://github.com/MudBlazor/MudBlazor"
+           Target="_blank"
+           Variant="Variant.Outlined"
+           EndIcon="@Icons.Custom.Brands.GitHub"
+           Color="Color.Tertiary"
+           Disabled=@disabled>
+    GitHub Link
+</MudButton>
+<br />
+<MudSwitch Color="Color.Primary" @bind-Value=@(disabled) Label="Disable" />
+
+@code {
+    bool disabled = false;
+}
+
 
 
 <br />
@@ -114,3 +178,7 @@
         More details
     </MudLink>
 </MudText>
+
+    @code{
+        private bool isLoading = false; 
+    }
