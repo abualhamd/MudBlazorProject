@@ -152,7 +152,39 @@
 @code {
     bool disabled = false;
 }
+<br />
+<MudForm @ref="form" Model="SignupModel" Spacing="4" onsubmit="@OnValidSubmit()">
+    <MudTextField T="string" Label="Name" Required="true" @bind-Value=SignupModel.Name />
+    <MudTextField T="string" Label="Email" Required="true" @bind-Value=SignupModel.Email />
+    <MudTextField T="string" Label="Password" InputType="InputType.Password" Required="true" @bind-Value=SignupModel.Password />
+    <MudStack Row Justify="Justify.Center">
+        <MudButton Type="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" >Submit</MudButton>
+        <MudButton Type="ButtonType.Reset" Variant="Variant.Filled" Color="Color.Primary" OnClick="() => form.ResetAsync()">Reset</MudButton>
+    </MudStack>
+</MudForm>
+<br />
 
+@code{
+    [SupplyParameterFromForm]
+    SignupDto SignupModel { get; set; } = new();
+    MudForm form = new();
+    class SignupDto
+    {
+        public string? Name { get; set; }
+        public string? Email { get; set; }
+        public string? Password { get; set; }
+    }
+
+    async Task OnValidSubmit()
+    {
+        await form.Validate();
+        if (form.IsValid)
+        {
+            Console.WriteLine("Form Submitted Successfully!");
+            Console.WriteLine($"SignupModel: {SignupModel}");
+        }
+    }
+}
 
 
 <br />
